@@ -53,7 +53,7 @@ label.verdanaLabel {
   as well as keep track of your stats</p><br/>
   <p class="verdanaP">Money: &pound;<span id="money">0</span></p>
   <p class="verdanaP">Computers in stock: <span id="computersInStock">0</span></p>
-  <fieldset>
+  <fieldset>	
 	<legend>Buy</legend>
 	<p class="verdanaP">Cost to manufacture a computer: <span id="computerManufactureCost">0</span></p>
 	<button type="button">Buy Computer</button>
@@ -90,14 +90,20 @@ label.verdanaLabel {
 	<h3 class="verdanaH3">CPU Upgrades</h3>
 	<p class="verdanaP">The CPU (Central Processing Unit) is the brains of your computer and carries out all the calculations.</p>
 	<br/><br/>
-	<button type="button" id="CPU_1-button"><span id="CPU_1">1.6 GHz</span></button>
-	<label class="verdanaLabel"> - Buying this will allow your computer to start doing calculations (Cost: &pound;<span id="CPU_1_cost">0</span>)</label><br/><br/>
-	<button type="button" id="CPU_2-button"><span id="CPU_2">2.0 GHz</span></button>
-	<button type="button" id="CPU_3-button"><span id="CPU_3">2.4 GHz</span></button>
-	<button type="button" id="CPU_4-button"><span id="CPU_4">3.2 GHz</span></button>
-	<button type="button" id="CPU_5-button"><span id="CPU_5">3.7 GHz</span></button>
-	<button type="button" id="CPU_6-button"><span id="CPU_6">4.2 GHz</span></button>
-	<button type="button" id="CPU_7-button"><span id="CPU_7">4.7 GHz</span></button>
+	<button type="button" id="CPU_1_button"><span id="CPU_1">300 MHz</span></button>
+	<label class="verdanaLabel" id="CPU_1_label"> - Intel&reg; Celeron&reg; Mendocino (Cost: &pound;<span id="CPU_1_cost">0</span>)</label><br/><br/>
+	<button type="button" id="CPU_2_button"><span id="CPU_2">1.0 GHz</span></button>
+	<label class="verdanaLabel" id="CPU_2_label"> - Intel&reg; Pentium&reg; III 1BGHz (Cost: &pound;<span id="CPU_2_cost">0</span>)</label><br/><br/>
+	<button type="button" id="CPU_3_button"><span id="CPU_3">1.3 GHz</span></button>
+	<label class="verdanaLabel" id="CPU_3_label"> - Intel&reg; Celeron&reg; D 350 (Cost: &pound;<span id="CPU_3_cost_cost">0</span>)</label><br/><br/>
+	<button type="button" id="CPU_4_button"><span id="CPU_4">2.0 GHz</span></button>
+	<label class="verdanaLabel" id="CPU_4_label"> - Intel&reg; Celeron&reg; G470 (Cost: &pound;<span id="CPU_4_cost">0</span>)</label><br/><br/>
+	<button type="button" id="CPU_5_button"><span id="CPU_5">2.8 GHz</span></button>
+	<label class="verdanaLabel" id="CPU_5_label"> - AMD&reg; Sempron&reg; 145 (Cost: &pound;<span id="CPU_5_cost">0</span>)</label><br/><br/>
+	<button type="button" id="CPU_6_button"><span id="CPU_6">3.2 GHz</span></button>
+	<label class="verdanaLabel" id="CPU_6_label"> - Intel&reg; Pentium&reg; 4 540 (Cost: &pound;<span id="CPU_6_cost">0</span>)</label><br/><br/>
+	<button type="button" id="CPU_7-button"><span id="CPU_7">3.8 GHz</span></button>
+	<label class="verdanaLabel" id="CPU_7_label"> - Intel&reg; Pentium&reg; 4 670 (Cost: &pound;<span id="CPU_7_cost">0</span>)</label>
 	<br/><br/>
   </div>
 
@@ -105,6 +111,24 @@ label.verdanaLabel {
   <div class="panel">
 	<h3 class="verdanaH3">RAM Upgrades</h3>
 	<p class="verdanaP">The RAM (Random Access Memory) is where your computer stores all the data being used at the moment. When the computer is switched off, the data is lost.</p>
+	<br/><br/>
+	<button type="button" id="RAM_1_button"><span id="RAM_1">2 GB</span></button>
+	<label class="verdanaLabel" id="RAM_1_label"> - Buying this will allow your computer to start doing calculations (Cost: &pound;<span id="RAM_1_cost">0</span>)</label><br/><br/>
+	<button type="button" id="RAM_2_button"><span id="RAM_2">4 GB</span></button>
+	<label class="verdanaLabel" id="RAM_2_label"> - Intel&reg; Celeron&reg; Processor 440 (Cost: &pound;<span id="CPU_2_cost">0</span>)</label><br/><br/>
+	<button type="button" id="RAM_3_button"><span id="RAM_3">6 GB</span></button>
+	<label class="verdanaLabel" id="RAM_3_label"> - Buying this will allow your computer to start doing calculations (Cost: &pound;<span id="RAM_3_cost_cost">0</span>)</label><br/><br/>
+	<button type="button" id="RAM_4_button"><span id="RAM_4">8 GB</span></button>
+	<label class="verdanaLabel" id="RAM_4_label"> - Buying this will allow your computer to start doing calculations (Cost: &pound;<span id="RAM_4_cost">0</span>)</label><br/><br/>
+	<button type="button" id="RAM_5_button"><span id="RAM_5">12 GB</span></button>
+	<label class="verdanaLabel" id="RAM_5_label"> - Buying this will allow your computer to start doing calculations (Cost: &pound;<span id="RAM_5_cost">0</span>)</label><br/><br/>
+	<button type="button" id="RAM_6_button"><span id="RAM_6">16 GB</span></button>
+	<label class="verdanaLabel" id="RAM_6_label"> - Buying this will allow your computer to start doing calculations (Cost: &pound;<span id="RAM_6_cost">0</span>)</label><br/><br/>
+	<button type="button" id="RAM_7_button"><span id="RAM_7">32 GB</span></button>
+	<label class="verdanaLabel" id="RAM_7_label"> - Buying this will allow your computer to start doing calculations (Cost: &pound;<span id="RAM_7_cost">0</span>)</label><br/><br/>
+	<button type="button" id="RAM_8_button"><span id="RAM_8">64 GB</span></button>
+	<label class="verdanaLabel" id="RAM_8_label"> - Buying this will allow your computer to start doing calculations (Cost: &pound;<span id="RAM_8_cost">0</span>)</label><br/><br/>
+	<br/><br/>
   </div>
 
   <button class="accordion">HDD Storage</button>
