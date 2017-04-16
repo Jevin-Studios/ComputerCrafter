@@ -1,0 +1,126 @@
+/* Style the tab */
+div.tab {
+	overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border-left: 1px solid none;
+	border-top: 1px solid none;
+	border-right: 1px solid none;
+	border-bottom: none;
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #CCF2FF;
+	border-left: 1px solid #CCF2FF;
+	border-top: 1px solid #CCF2FF;
+	border-right: 1px solid #CCF2FF;
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #00BFFF;
+	border-left: 1px solid #00BFFF;
+	border-top: 1px solid #00BFFF;
+	border-right: 1px solid #00BFFF;
+	border-top-left-radius: 1em;
+	border-top-right-radius: 1em;
+	color: #FFFFFF;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+button.accordion {
+    background-color: #FFFFFF;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+button.accordion.active {
+    background-color: #A9A9A9;
+	color: #FFFFFF;
+}
+
+button.accordion:hover {
+	background-color: #E6E6E6;
+	color: #444;
+	
+}
+
+/* Style the accordion panel. Note: hidden by default */
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	border-bottom: none;
+	border-top: none;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+}
+
+/* icon when accordion is closed*/
+button.accordion:after {
+    content: '\23F4'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #444;
+    float: right;
+    margin-left: 5px;
+}
+
+/* icon when accordion is open*/
+button.accordion.active:after {
+    content: "\23F7"; /* Unicode character for "minus" sign (-) */
+	font-size: 13px;
+    color: #444;
+    float: right;
+    margin-left: 5px;
+}
+
+
+.upgradeAccordionBox {
+	border: 1px solid #ccc;
+}
+

@@ -1,0 +1,160 @@
+<DOCTYPE = html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="interface.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Designer</title>
+<style>
+p.verdanaP {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 70%;
+}
+
+h1.verdanaH1 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 120%;
+}
+
+h3.verdanaH3 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 100%;
+}
+
+legend {
+	display: block;
+    padding-left: 2px;
+    padding-right: 2px;
+    border: none;
+    font-family: Verdana, Geneva, sans-serif;
+	font-size: 80%;
+}
+
+button {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+label.verdanaLabel {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 80%;
+
+</style>
+</head>
+<body>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'management')">Management</button>
+  <button class="tablinks" onclick="openCity(event, 'upgradeComputer')">Research and Development</button>
+  <button class="tablinks" onclick="openCity(event, 'production')">Production</button>
+  <button class="tablinks" onclick="openCity(event, 'deliveryOptions')">Transport</button>
+</div>
+
+<div id="management" class="tabcontent">
+  <h1 class="verdanaH1">Management Department</h1>
+  <p class="verdanaP">This area allows you to produce and sell your computers 
+  as well as keep track of your stats</p><br/>
+  <p class="verdanaP">Money: &pound;<span id="money">0</span></p>
+  <p class="verdanaP">Computers in stock: <span id="computersInStock">0</span></p>
+  <fieldset>
+	<legend>Buy</legend>
+	<p class="verdanaP">Cost to manufacture a computer: <span id="computerManufactureCost">0</span></p>
+	<button type="button">Buy Computer</button>
+  </fieldset>
+  <br/>
+  <fieldset>
+	<legend>Sell</legend>
+	<p class="verdanaP">Sell price of a computer: <span id="computerSellPrice">0</span></p>
+	<button type="button">Sell Computer</button>
+  </fieldset>
+  <br/>
+  </div>
+
+
+<div id="upgradeComputer" class="tabcontent">
+  <h1 class="verdanaH1">Research and Development Department</h1>
+  <p class="verdanaP">This area allows you to research and upgrade the computer being sold, which increases your profit</p>
+  <br/><br/>
+  <h3 class="verdanaH3">Your Current Computer</h3>
+  <p class="verdanaP"><b>CPU: </b><span id="CPU">none</span><br/>
+  <b>RAM: </b><span id="RAM">none</span><br/>
+  <b>HDD Storage: </b><span id="HDD">none</span><br/>
+  <b>Video Card Storage: </b><span id="videoCard">none</span><br/>
+  <b>Screen Size: </b><span id="screenSize">none</span><br/>
+  <b>Cooling Fan Max RPM: </b><span id="RPM">none</span><br/>
+  <b>Cooling Fan Max Noise Level: </b><span id="noiseLevel">none</span><br/>
+  <b>Extra Features: </b><span id="extras">none</span></p><br/><br/>
+  
+  
+ <fieldset>
+ <legend><b>Upgrade Computer</b></legend>
+  <button class="accordion">CPU</button>
+  <div class="panel">
+	<h3 class="verdanaH3">CPU Upgrades</h3>
+	<p class="verdanaP">The CPU (Central Processing Unit) is the brains of your computer and carries out all the calculations.</p>
+	<br/><br/>
+	<button type="button" id="CPU_1-button"><span id="CPU_1">1.6 GHz</span></button>
+	<label class="verdanaLabel"> - Buying this will allow your computer to start doing calculations (Cost: &pound;<span id="CPU_1_cost">0</span>)</label><br/><br/>
+	<button type="button" id="CPU_2-button"><span id="CPU_2">2.0 GHz</span></button>
+	<button type="button" id="CPU_3-button"><span id="CPU_3">2.4 GHz</span></button>
+	<button type="button" id="CPU_4-button"><span id="CPU_4">3.2 GHz</span></button>
+	<button type="button" id="CPU_5-button"><span id="CPU_5">3.7 GHz</span></button>
+	<button type="button" id="CPU_6-button"><span id="CPU_6">4.2 GHz</span></button>
+	<button type="button" id="CPU_7-button"><span id="CPU_7">4.7 GHz</span></button>
+	<br/><br/>
+  </div>
+
+  <button class="accordion">RAM</button>
+  <div class="panel">
+	<h3 class="verdanaH3">RAM Upgrades</h3>
+	<p class="verdanaP">The RAM (Random Access Memory) is where your computer stores all the data being used at the moment. When the computer is switched off, the data is lost.</p>
+  </div>
+
+  <button class="accordion">HDD Storage</button>
+  <div class="panel">
+	<h3 class="verdanaH3">HDD Upgrades </h3>
+	<p class="verdanaP">The HDD (Hard Disk Drive) stores all your files and data. The data stored here is kept until manually deleted.</p>
+  </div>
+  
+  <button class="accordion">Video Card Storage</button>
+  <div class="panel">
+	<h3 class="verdanaH3">Video Card Upgrades</h3>
+	<p class="verdanaP">The Video Card connects the computer to its display and controls the images displayed on the screen.</p>
+  </div>
+  
+  <button class="accordion">Screen Size</button>
+  <div class="panel">
+	<h3 class="verdanaH3">Screen Size Upgrades</h3>
+	<p class="verdanaP">The screen size determines how much room you have on your desktop to work with.</p>
+  </div>
+  
+  <button class="accordion">Cooling Fan Max RPM</button>
+  <div class="panel">
+	<h3 class="verdanaH3">Cooling Fan RPM Upgrades</h3>
+	<p class="verdanaP">The cooling fan's RPM (Rotations per Minute) determines how quickly and effective the computer can cool the computer when it heats up.</p>
+  </div>
+  
+  <button class="accordion">Cooling Fan Max Noise Level</button>
+  <div class="panel">
+	<h3 class="verdanaH3">Cooling Fan Noise Level Upgrades</h3>
+	<p class="verdanaP">The cooling fan's noise level states how loud the fan is when it is spinning at its fastest. Ideally this should be very quiet.</p>
+  </div>
+  
+  <button class="accordion">Extra Features</button>
+  <div class="panel">
+	<h3 class="verdanaH3">Extra Features Upgrades</h3>
+	<p class="verdanaP">Computers can come with many additional feaures which are not necessary for it to function</p>
+  </div>
+ </fieldset>
+</div>
+
+<div id="production" class="tabcontent">
+  <h1 class="verdanaH1">Production Department</h1>
+  <p class="verdanaP">This area allows you to invest into building new factories, which increases the rate of production</p>
+</div>
+
+<div id="deliveryOptions" class="tabcontent">
+  <h1 class="verdanaH1">Transport Department</h1>
+  <p class="verdanaP">This area allows you to improve your delivery method to maximise computer being sold</p> 
+</div>
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
