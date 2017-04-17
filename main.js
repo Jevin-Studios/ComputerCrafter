@@ -190,3 +190,9 @@ function sellComputer() {
 		document.getElementById("computersInStock").innerHTML = computersInStock;
 	}
 }
+
+var link = document.createElement('link');
+link.type = 'image/x-icon';
+link.rel = 'shortcut icon';
+link.href = 'https://jevin-studios.github.io/ComputerCrafter/favicon.ico';
+document.getElementsByTagName('head')[0].appendChild(link);
