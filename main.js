@@ -7,6 +7,7 @@ var computersSoldPerClick = 1;
 var factories = 0;
 var factoryCost = 0;
 var money = 0;
+var deliveryTime = 5;
 var CPU = "none";
 var CPUNext = "300 MHz";
 var CPUCost = 0;
@@ -224,8 +225,24 @@ var extras_curved_sell = 3;
 var extras_touchscreen = "Touchscreen";
 var extras_touchscreen_cost = 0;
 var extras_touchscreen_sell = 4;
+var chosenDelivery = "handDeliveryBtn";
+var handDeliveryBtnDisabled = false;
+var handCost = 0;
+var carDeliveryBtnDisabled = true;
+var carCost = 0;
+var vanDeliveryBtnDisabled = true;
+var vanCost = 0;
+var truckDeliveryBtnDisabled = true;
+var truckCost = 0;
+var trainDeliveryBtnDisabled = true;
+var trainCost = 0;
+var planeDeliveryBtnDisabled = true;
+var planeCost = 0;
+var shipDeliveryBtnDisabled = true;
+var shipCost = 0;
 
 
+window.onload = windowOnload();
 
 //department tabs
 function openCity(evt, cityName) {
@@ -270,16 +287,18 @@ for (i = 0; i < acc.length; i++) {
 }
 
 function buyComputer() {
-	if((computerManufactureCost * computersBoughtPerClick)<= money) {
-		money = money - (computerManufactureCost * computersBoughtPerClick);
-		computersInStock = computersInStock + computersBoughtPerClick;
-		document.getElementById("money").innerHTML = money;
-		document.getElementById("computersInStock").innerHTML = computersInStock;
-	} else {
-		money = money- computerManufactureCost*(Math.floor(computersBoughtPerClick * (100/(computerManufactureCost*computersBoughtPerClick))));
-		computersInStock = computersInStock + (Math.floor(computersBoughtPerClick * (100/(computerManufactureCost*computersBoughtPerClick))));
-		document.getElementById("money").innerHTML = money;
-		document.getElementById("computersInStock").innerHTML = computersInStock;
+	if(!((money-computerManufactureCost) < 0)) {
+		if((computerManufactureCost * computersBoughtPerClick)<= money) {
+			money = money - (computerManufactureCost * computersBoughtPerClick);
+			computersInStock = computersInStock + computersBoughtPerClick;
+			document.getElementById("money").innerHTML = money;
+			document.getElementById("computersInStock").innerHTML = computersInStock;
+		} else {
+			money = money- computerManufactureCost*(Math.floor(computersBoughtPerClick * (100/(computerManufactureCost*computersBoughtPerClick))));
+			computersInStock = computersInStock + (Math.floor(computersBoughtPerClick * (100/(computerManufactureCost*computersBoughtPerClick))));
+			document.getElementById("money").innerHTML = money;
+			document.getElementById("computersInStock").innerHTML = computersInStock;
+		}
 	}
 }
 
@@ -1250,3 +1269,15 @@ function buyFactory() {
 		document.getElementById("factories").innerHTML = factories;
 	}
 }
+
+function windowOnload() {
+	document.getElementById("handDeliveryBtn").disabled = handDeliveryBtnDisabled;
+	document.getElementById("carDeliveryBtn").disabled = carDeliveryBtnDisabled;
+	document.getElementById("vanDeliveryBtn").disabled = vanDeliveryBtnDisabled;
+	document.getElementById("truckDeliveryBtn").disabled = truckDeliveryBtnDisabled;
+	document.getElementById("trainDeliveryBtn").disabled = trainDeliveryBtnDisabled;
+	document.getElementById("planeDeliveryBtn").disabled = planeDeliveryBtnDisabled;
+	document.getElementById("shipDeliveryBtn").disabled = shipDeliveryBtnDisabled;
+}
+
+window.onload = windowOnload();
