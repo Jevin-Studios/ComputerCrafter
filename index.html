@@ -193,7 +193,12 @@ label.verdanaLabel {
 <div id="production" class="tabcontent">
   <h1 class="verdanaH1">Production Department</h1>
   <p class="verdanaP">This area allows you to invest into building new factories, which increases the rate of production</p>
-</div>
+  <br/>
+  <p class="verdanaP"><b>Factories Owned: </b><span id="factories">0</span></br>
+  <b>Computers bought per click: </b><span id="computersBoughtPerClick">1</span></p>
+  <button type="button" id="buyFactoryBtn" onclick="buyFactory()">Buy Factory (Cost: &pound;<span id="factoryCost">0</span>)</button>
+  
+  </div>
 
 <div id="deliveryOptions" class="tabcontent">
   <h1 class="verdanaH1">Transport Department</h1>

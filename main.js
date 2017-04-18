@@ -2,6 +2,10 @@ var computersInStock = 0;
 var computerManufactureCost = 0;
 var computerSellPrice = 0;
 var computerSellPrice2 = 0;
+var computersBoughtPerClick = 1;
+var computersSoldPerClick = 1;
+var factories = 0;
+var factoryCost = 0;
 var money = 0;
 var CPU = "none";
 var CPUNext = "300 MHz";
@@ -266,9 +270,14 @@ for (i = 0; i < acc.length; i++) {
 }
 
 function buyComputer() {
-	if(computerManufactureCost <= money) {
-		money = money - computerManufactureCost;
-		computersInStock = computersInStock + 1;
+	if((computerManufactureCost * computersBoughtPerClick)<= money) {
+		money = money - (computerManufactureCost * computersBoughtPerClick);
+		computersInStock = computersInStock + computersBoughtPerClick;
+		document.getElementById("money").innerHTML = money;
+		document.getElementById("computersInStock").innerHTML = computersInStock;
+	} else {
+		money = money- computerManufactureCost*(Math.floor(computersBoughtPerClick * (100/(computerManufactureCost*computersBoughtPerClick))));
+		computersInStock = computersInStock + (Math.floor(computersBoughtPerClick * (100/(computerManufactureCost*computersBoughtPerClick))));
 		document.getElementById("money").innerHTML = money;
 		document.getElementById("computersInStock").innerHTML = computersInStock;
 	}
@@ -1226,5 +1235,18 @@ function upgradeScreenSize() {
 			document.getElementById("computerSellPrice2").innerHTML = computerSellPrice2;
 			document.getElementById("computerSellPrice").innerHTML = computerSellPrice;
 		}
+	}
+}
+
+function buyFactory() {
+	if(factoryCost <= money) {
+		factories = factories + 1;
+		computersBoughtPerClick = computersBoughtPerClick + 1;
+		factoryCost = factoryCost * 2;
+		money = money - factoryCost;
+		document.getElementById("factoryCost").innerHTML = factoryCost;
+		document.getElementById("money").innerHTML = money;
+		document.getElementById("computersBoughtPerClick").innerHTML = computersBoughtPerClick;
+		document.getElementById("factories").innerHTML = factories;
 	}
 }
