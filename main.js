@@ -7,7 +7,7 @@ var computersSoldPerClick = 1;
 var factories = 0;
 var factoryCost = 0;
 var money = 0;
-var deliveryTime = 5;
+var deliveryTime = 9;
 var CPU = "none";
 var CPUNext = "300 MHz";
 var CPUCost = 0;
@@ -226,20 +226,42 @@ var extras_touchscreen = "Touchscreen";
 var extras_touchscreen_cost = 0;
 var extras_touchscreen_sell = 4;
 var chosenDelivery = "handDeliveryBtn";
-var handDeliveryBtnDisabled = false;
+var currentTransportEnabled = handEnabled;
 var handCost = 0;
-var carDeliveryBtnDisabled = true;
+var handSales = 0;
+var handTime = 0;
+var handBought = true;
+var handEnabled = true;
 var carCost = 0;
-var vanDeliveryBtnDisabled = true;
+var carSales = 0;
+var carTime = 0;
+var carBought = false;
+var carEnabled = false;
 var vanCost = 0;
-var truckDeliveryBtnDisabled = true;
+var vanSales = 0;
+var vanTime = 0;
+var vanBought = false;
+var vanEnabled = false;
 var truckCost = 0;
-var trainDeliveryBtnDisabled = true;
+var truckSales = 0;
+var truckTime = 0;
+var truckBought = false;
+var truckEnabled = false;
 var trainCost = 0;
-var planeDeliveryBtnDisabled = true;
+var trainSales = 0
+var trainTime = 0;
+var trainBought = false;
+var trainEnabled = false;
 var planeCost = 0;
-var shipDeliveryBtnDisabled = true;
+var planeSales = 0;
+var planeTime = 0;
+var planeBought = false;
+var planeEnabled = false;
 var shipCost = 0;
+var shipSales = 0;
+var shipTime = 0;
+var shipBought = false;
+var shipEnabled = false;
 
 
 window.onload = windowOnload();
@@ -1270,14 +1292,30 @@ function buyFactory() {
 	}
 }
 
+function transportSelect(transportName, sales, transportTime, cost, transportBought, transportEnabled) {
+	chosenDelivery = transportName
+	computersSoldPerClick = sales
+	deliveryTime2 = transportTime
+	document.getElementById("chosenDelivery").innerHTML = chosenDelivery;
+	document.getElementById("computersSoldPerClick").innerHTML = computersSoldPerClick;
+	document.getElementById("deliveryTime2").innerHTML = deliveryTime2;
+	if(transportBought == true) {
+		if(transportEnabled == true) {
+			document.getElementById("deliveryButton").innerHTML = "Enabled";
+			document.getElementById("deliveryButton").disabled = true;
+		} else {
+			document.getElementById("deliveryButton").innerHTML = "Enable";
+			document.getElementById("deliveryButton").disabled = false;
+		}
+	} else {
+		document.getElementById("deliveryButton").innerHTML = "Buy " + transportName + " (Cost: £" + cost + ")";
+		document.getElementById("deliveryButton").disabled = false;
+	}
+}
+
+
 function windowOnload() {
-	document.getElementById("handDeliveryBtn").disabled = handDeliveryBtnDisabled;
-	document.getElementById("carDeliveryBtn").disabled = carDeliveryBtnDisabled;
-	document.getElementById("vanDeliveryBtn").disabled = vanDeliveryBtnDisabled;
-	document.getElementById("truckDeliveryBtn").disabled = truckDeliveryBtnDisabled;
-	document.getElementById("trainDeliveryBtn").disabled = trainDeliveryBtnDisabled;
-	document.getElementById("planeDeliveryBtn").disabled = planeDeliveryBtnDisabled;
-	document.getElementById("shipDeliveryBtn").disabled = shipDeliveryBtnDisabled;
+	
 }
 
 window.onload = windowOnload();
