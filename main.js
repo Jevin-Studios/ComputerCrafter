@@ -335,6 +335,7 @@ function sellComputer() {
 		computersInStock = computersInStock - computersInStock;
 		document.getElementById("money").innerHTML = money;
 		document.getElementById("computersInStock").innerHTML = computersInStock;
+	}
 }
 
 var link = document.createElement('link');
@@ -1552,9 +1553,3 @@ function buyTransport() {
 	}
 }
 
-
-function windowOnload() {
-	
-}
-
-window.onload = windowOnload();
