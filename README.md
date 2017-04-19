@@ -7,4 +7,4 @@ At first you unlock the most basic computer features. You are then able to buy a
 There are also certain upgrades you can purchase. You can upgrade the individual parts of the computer to increase the sell price, you can purchase factories to increase the number of computers assembled every click and you can upgrade your transportation to increase the number of computers sold every click.
 
 # State of the game
-I am still developing this game which means i am currently working on the layout and visuals of this game. I would appreciate it if suggestions could be made of what i could change and general feedback on how the game looks like (please no comments on function as nothing works at the moment!).
+I have completed the game code so the game should be fully functional. I have however yet to add prices to the upgrades so at the moment, everything is free! Please give suggestions on how i could improve the layout of the game or what i could add.
