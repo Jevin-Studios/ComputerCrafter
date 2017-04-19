@@ -226,39 +226,39 @@ var extras_touchscreen = "Touchscreen";
 var extras_touchscreen_cost = 0;
 var extras_touchscreen_sell = 4;
 var chosenDelivery = "handDeliveryBtn";
-var currentTransportEnabled = handEnabled;
+var currentlySelected = "hand";
 var handCost = 0;
-var handSales = 0;
+var handSales = 1;
 var handTime = 0;
 var handBought = true;
 var handEnabled = true;
 var carCost = 0;
-var carSales = 0;
+var carSales = 1;
 var carTime = 0;
 var carBought = false;
 var carEnabled = false;
 var vanCost = 0;
-var vanSales = 0;
+var vanSales = 1;
 var vanTime = 0;
 var vanBought = false;
 var vanEnabled = false;
 var truckCost = 0;
-var truckSales = 0;
+var truckSales = 1;
 var truckTime = 0;
 var truckBought = false;
 var truckEnabled = false;
 var trainCost = 0;
-var trainSales = 0
+var trainSales = 1;
 var trainTime = 0;
 var trainBought = false;
 var trainEnabled = false;
 var planeCost = 0;
-var planeSales = 0;
+var planeSales = 1;
 var planeTime = 0;
 var planeBought = false;
 var planeEnabled = false;
 var shipCost = 0;
-var shipSales = 0;
+var shipSales = 1;
 var shipTime = 0;
 var shipBought = false;
 var shipEnabled = false;
@@ -325,12 +325,16 @@ function buyComputer() {
 }
 
 function sellComputer() {
-	if(!(computersInStock == 0)) {
-		money = money + computerSellPrice;
-		computersInStock = computersInStock - 1;
+	if(computersInStock >= computersSoldPerClick) {
+		money = money + (computersSoldPerClick*computerSellPrice);
+		computersInStock = computersInStock - computersSoldPerClick;
 		document.getElementById("money").innerHTML = money;
 		document.getElementById("computersInStock").innerHTML = computersInStock;
-	}
+	} else  {
+		money = money + (computerSellPrice * computersInStock);
+		computersInStock = computersInStock - computersInStock;
+		document.getElementById("money").innerHTML = money;
+		document.getElementById("computersInStock").innerHTML = computersInStock;
 }
 
 var link = document.createElement('link');
@@ -1292,12 +1296,12 @@ function buyFactory() {
 	}
 }
 
-function transportSelect(transportName, sales, transportTime, cost, transportBought, transportEnabled) {
+function transportSelect(transportName, sales, transportTime, cost, transportBought, transportEnabled, currentSelected) {
 	chosenDelivery = transportName
-	computersSoldPerClick = sales
 	deliveryTime2 = transportTime
+	currentlySelected = currentSelected 
 	document.getElementById("chosenDelivery").innerHTML = chosenDelivery;
-	document.getElementById("computersSoldPerClick").innerHTML = computersSoldPerClick;
+	document.getElementById("computersSoldPerClick").innerHTML = sales;
 	document.getElementById("deliveryTime2").innerHTML = deliveryTime2;
 	if(transportBought == true) {
 		if(transportEnabled == true) {
@@ -1310,6 +1314,241 @@ function transportSelect(transportName, sales, transportTime, cost, transportBou
 	} else {
 		document.getElementById("deliveryButton").innerHTML = "Buy " + transportName + " (Cost: £" + cost + ")";
 		document.getElementById("deliveryButton").disabled = false;
+	}
+}
+
+function buyTransport() {
+	if(currentlySelected == "hand") {
+		if(handBought = true) {
+			handEnabled = false;
+			carEnabled = false;
+			vanEnabled = false;
+			truckEnabled = false;
+			trainEnabled = false;
+			planeEnabled = false;
+			shipEnabled = false;
+			handEnabled = true;
+			document.getElementById("deliveryButton").innerHTML = "Enabled";
+			document.getElementById("deliveryButton").disabled = true;
+			computersSoldPerClick = handSales;
+			deliveryTime = handTime;
+			document.getElementById("deliveryTime").innerHTML = deliveryTime;
+		} else {
+			if(handCost <= money) {
+				handEnabled = false;
+				carEnabled = false;
+				vanEnabled = false;
+				truckEnabled = false;
+				trainEnabled = false;
+				planeEnabled = false;
+				shipEnabled = false;
+				handEnabled = true;
+				document.getElementById("deliveryButton").innerHTML = "Enabled";
+				document.getElementById("deliveryButton").disabled = true;
+				computersSoldPerClick = handSales;
+				deliveryTime = handTime;
+				document.getElementById("deliveryTime").innerHTML = deliveryTime;
+				handBought = true;
+			}		
+		}
+	} else if(currentlySelected == "car") {
+		if(carBought = true) {
+			handEnabled = false;
+			carEnabled = false;
+			vanEnabled = false;
+			truckEnabled = false;
+			trainEnabled = false;
+			planeEnabled = false;
+			shipEnabled = false;
+			carEnabled = true;
+			document.getElementById("deliveryButton").innerHTML = "Enabled";
+			document.getElementById("deliveryButton").disabled = true;
+			computersSoldPerClick = carSales;
+			deliveryTime = carTime;
+			document.getElementById("deliveryTime").innerHTML = deliveryTime;
+		} else {
+			if(carCost <= money) {
+				handEnabled = false;
+				carEnabled = false;
+				vanEnabled = false;
+				truckEnabled = false;
+				trainEnabled = false;
+				planeEnabled = false;
+				shipEnabled = false;
+				carEnabled = true;
+				document.getElementById("deliveryButton").innerHTML = "Enabled";
+				document.getElementById("deliveryButton").disabled = true;
+				computersSoldPerClick = carSales;
+				deliveryTime = carTime;
+				document.getElementById("deliveryTime").innerHTML = deliveryTime;
+				carBought = true;
+			}		
+		}
+	} else if(currentlySelected == "van") {
+		if(vanBought = true) {
+			handEnabled = false;
+			carEnabled = false;
+			vanEnabled = false;
+			truckEnabled = false;
+			trainEnabled = false;
+			planeEnabled = false;
+			shipEnabled = false;
+			vanEnabled = true;
+			document.getElementById("deliveryButton").innerHTML = "Enabled";
+			document.getElementById("deliveryButton").disabled = true;
+			computersSoldPerClick = vanSales;
+			deliveryTime = vanTime;
+			document.getElementById("deliveryTime").innerHTML = deliveryTime;
+		} else {
+			if(vanCost <= money) {
+				handEnabled = false;
+				carEnabled = false;
+				vanEnabled = false;
+				truckEnabled = false;
+				trainEnabled = false;
+				planeEnabled = false;
+				shipEnabled = false;
+				vanEnabled = true;
+				document.getElementById("deliveryButton").innerHTML = "Enabled";
+				document.getElementById("deliveryButton").disabled = true;
+				computersSoldPerClick = vanSales;
+				deliveryTime = vanTime;
+				document.getElementById("deliveryTime").innerHTML = deliveryTime;
+				vanBought = true;
+			}		
+		}
+	} else if(currentlySelected == "truck") {
+		if(truckBought = true) {
+			handEnabled = false;
+			carEnabled = false;
+			vanEnabled = false;
+			truckEnabled = false;
+			trainEnabled = false;
+			planeEnabled = false;
+			shipEnabled = false;
+			truckEnabled = true;
+			document.getElementById("deliveryButton").innerHTML = "Enabled";
+			document.getElementById("deliveryButton").disabled = true;
+			computersSoldPerClick = truckSales;
+			deliveryTime = truckTime;
+			document.getElementById("deliveryTime").innerHTML = deliveryTime;
+		} else {
+			if(truckCost <= money) {
+				handEnabled = false;
+				carEnabled = false;
+				vanEnabled = false;
+				truckEnabled = false;
+				trainEnabled = false;
+				planeEnabled = false;
+				shipEnabled = false;
+				truckEnabled = true;
+				document.getElementById("deliveryButton").innerHTML = "Enabled";
+				document.getElementById("deliveryButton").disabled = true;
+				computersSoldPerClick = truckSales;
+				deliveryTime = truckTime;
+				document.getElementById("deliveryTime").innerHTML = deliveryTime;
+				truckBought = true;
+			}		
+		}
+	} else if(currentlySelected == "train") {
+		if(trainBought = true) {
+			handEnabled = false;
+			carEnabled = false;
+			vanEnabled = false;
+			truckEnabled = false;
+			trainEnabled = false;
+			planeEnabled = false;
+			shipEnabled = false;
+			trainEnabled = true;
+			document.getElementById("deliveryButton").innerHTML = "Enabled";
+			document.getElementById("deliveryButton").disabled = true;
+			computersSoldPerClick = trainSales;
+			deliveryTime = trainTime;
+			document.getElementById("deliveryTime").innerHTML = deliveryTime;
+		} else {
+			if(trainCost <= money) {
+				handEnabled = false;
+				carEnabled = false;
+				vanEnabled = false;
+				truckEnabled = false;
+				trainEnabled = false;
+				planeEnabled = false;
+				shipEnabled = false;
+				trainEnabled = true;
+				document.getElementById("deliveryButton").innerHTML = "Enabled";
+				document.getElementById("deliveryButton").disabled = true;
+				computersSoldPerClick = trainSales;
+				deliveryTime = trainTime;
+				document.getElementById("deliveryTime").innerHTML = deliveryTime;
+				trainBought = true;
+			}		
+		}
+	} else if(currentlySelected == "plane") {
+		if(planeBought = true) {
+			handEnabled = false;
+			carEnabled = false;
+			vanEnabled = false;
+			truckEnabled = false;
+			trainEnabled = false;
+			planeEnabled = false;
+			shipEnabled = false;
+			planeEnabled = true;
+			document.getElementById("deliveryButton").innerHTML = "Enabled";
+			document.getElementById("deliveryButton").disabled = true;
+			computersSoldPerClick = planeSales;
+			deliveryTime = planeTime;
+			document.getElementById("deliveryTime").innerHTML = deliveryTime;
+		} else {
+			if(planeCost <= money) {
+				handEnabled = false;
+				carEnabled = false;
+				vanEnabled = false;
+				truckEnabled = false;
+				trainEnabled = false;
+				planeEnabled = false;
+				shipEnabled = false;
+				planeEnabled = true;
+				document.getElementById("deliveryButton").innerHTML = "Enabled";
+				document.getElementById("deliveryButton").disabled = true;
+				computersSoldPerClick = planeSales;
+				deliveryTime = planeTime;
+				document.getElementById("deliveryTime").innerHTML = deliveryTime;
+				planeBought = true;
+			}		
+		}
+	} else if(currentlySelected == "ship") {
+		if(shipBought = true) {
+			handEnabled = false;
+			carEnabled = false;
+			vanEnabled = false;
+			truckEnabled = false;
+			trainEnabled = false;
+			planeEnabled = false;
+			shipEnabled = false;
+			shipEnabled = true;
+			document.getElementById("deliveryButton").innerHTML = "Enabled";
+			document.getElementById("deliveryButton").disabled = true;
+			computersSoldPerClick = shipSales;
+			deliveryTime = shipTime;
+			document.getElementById("deliveryTime").innerHTML = deliveryTime;
+		} else {
+			if(shipCost <= money) {
+				handEnabled = false;
+				carEnabled = false;
+				vanEnabled = false;
+				truckEnabled = false;
+				trainEnabled = false;
+				planeEnabled = false;
+				shipEnabled = false;
+				shipEnabled = true;
+				document.getElementById("deliveryButton").innerHTML = "Enabled";
+				document.getElementById("deliveryButton").disabled = true;
+				computersSoldPerClick = shipSales;
+				deliveryTime = shipTime;
+				document.getElementById("deliveryTime").innerHTML = deliveryTime;
+				shipBought = true;
+			}		
+		}
 	}
 }
 

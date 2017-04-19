@@ -204,20 +204,20 @@ label.verdanaLabel {
 <div id="deliveryOptions" class="tabcontent">
   <h1 class="verdanaH1">Transport Department</h1>
   <p class="verdanaP">This area allows you to improve your delivery method to maximise computers being sold</p><br/>
-  <button type="button" id="handDeliveryBtn" onclick = "transportSelect('Hand Delivery', handSales,  handTime, handCost, handBought, handEnabled)"><img src="001-delivery-worker-giving-a-box-to-a-receiver.png" style="height:80px;width:80px;"></button>
-  <button type="button" id="carDeliveryBtn" onclick = "transportSelect('Car Delivery', carSales,  carTime, carCost, carBought, carEnabled)"><img src="002-car-trip.png" style="height:80px;width:80px;"></button>
-  <button type="button" id="vanDeliveryBtn" onclick = "transportSelect('Van Delivery', vanSales,  vanTime, vanCost, vanBought, vanEnabled)"><img src="003-delivery-truck.png" style="height:80px;width:80px;"></button>
-  <button type="button" id="truckDeliveryBtn" onclick = "transportSelect('Truck Delivery', truckSales,  truckTime, truckCost, truckBought, truckEnabled)"><img src="004-frontal-truck.png" style="height:80px;width:80px;"></button>
-  <button type="button" id="trainDeliveryBtn" onclick = "transportSelect('Train Delivery', trainSales,  trainTime, trainCost, trainBought, trainEnabled)"><img src="005-train-front.png" style="height:80px;width:80px;"></button>
-  <button type="button" id="planeDeliveryBtn" onclick = "transportSelect('Plane Delivery', planeSales,  planeTime, planeCost, planeBought, planeEnabled)"><img src="006-air-transport.png" style="height:80px;width:80px;"></button>
-  <button type="button" id="shipDeliveryBtn" onclick = "transportSelect('Ship Delivery', shipSales,  shipTime, shipCost, shipBought, shipEnabled)"><img src="007-ocean-transportation.png" style="height:80px;width:80px;"></button>
+  <button type="button" id="handDeliveryBtn" onclick = "transportSelect('Hand Delivery', handSales,  handTime, handCost, handBought, handEnabled, 'hand')"><img src="001-delivery-worker-giving-a-box-to-a-receiver.png" style="height:80px;width:80px;"></button>
+  <button type="button" id="carDeliveryBtn" onclick = "transportSelect('Car Delivery', carSales,  carTime, carCost, carBought, carEnabled, 'car')"><img src="002-car-trip.png" style="height:80px;width:80px;"></button>
+  <button type="button" id="vanDeliveryBtn" onclick = "transportSelect('Van Delivery', vanSales,  vanTime, vanCost, vanBought, vanEnabled, 'van')"><img src="003-delivery-truck.png" style="height:80px;width:80px;"></button>
+  <button type="button" id="truckDeliveryBtn" onclick = "transportSelect('Truck Delivery', truckSales,  truckTime, truckCost, truckBought, truckEnabled, 'truck')"><img src="004-frontal-truck.png" style="height:80px;width:80px;"></button>
+  <button type="button" id="trainDeliveryBtn" onclick = "transportSelect('Train Delivery', trainSales,  trainTime, trainCost, trainBought, trainEnabled, 'train')"><img src="005-train-front.png" style="height:80px;width:80px;"></button>
+  <button type="button" id="planeDeliveryBtn" onclick = "transportSelect('Plane Delivery', planeSales,  planeTime, planeCost, planeBought, planeEnabled, 'plane')"><img src="006-air-transport.png" style="height:80px;width:80px;"></button>
+  <button type="button" id="shipDeliveryBtn" onclick = "transportSelect('Ship Delivery', shipSales,  shipTime, shipCost, shipBought, shipEnabled, 'ship')"><img src="007-ocean-transportation.png" style="height:80px;width:80px;"></button>
   <br/></br>
   <fieldset>
   <legend><b><span id = "chosenDelivery">Hand Delivery</span></b></legend>
 	<p class="verdanaP"><b>Computers sold per click: </b><span id="computersSoldPerClick">1</span></br>
 	<b>Delivery Time: </b><span id="deliveryTime2">5</span> seconds</p>
 	</br>
-	<button type="button" id="deliveryButton">Enable</button>
+	<button type="button" id="deliveryButton" onclick="buyTransport()">Enable</button>
   </fieldset>
 </div>
 
